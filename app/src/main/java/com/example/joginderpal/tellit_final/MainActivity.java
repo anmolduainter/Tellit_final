@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -94,11 +95,17 @@ public class MainActivity extends AppCompatActivity {
 
                // TranslateAnimation translateAnimation=new TranslateAnimation(0,0,0,2400);
               //  TranslateAnimation translateAnimation1=new TranslateAnimation(0,0,-2400,0);
-                mAuth.signOut();
+             /*   mAuth.signOut();
                 startAnimation();
                 startActivity(new Intent(MainActivity.this,Login.class));
+                */
               //  overridePendingTransition();
 
+                Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
+                whatsappIntent.setType("text/plain");
+                //whatsappIntent.setPackage("com.whatsapp");
+                whatsappIntent.putExtra(Intent.EXTRA_TEXT, "Passing Story");
+                MainActivity.this.startActivity(whatsappIntent);
             }
         });
 
@@ -247,6 +254,11 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
 
 
+
+
+    }
+
+    public void dummy(View v){
 
 
     }
